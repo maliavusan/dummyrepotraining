@@ -1,2 +1,1 @@
-# dummyrepotraining
-#Just to acteast have something
+Just a normal readme file
