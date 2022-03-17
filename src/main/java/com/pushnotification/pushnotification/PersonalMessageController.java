@@ -1,5 +1,7 @@
 package com.pushnotification.pushnotification;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonalMessageController {
 
   private final PersonalMessageSender pushSender;
+  private Logger logger = LoggerFactory.getLogger(PersonalMessageController.class);
 
   public PersonalMessageController(PersonalMessageSender pushSender) {
     this.pushSender = pushSender;
@@ -30,15 +33,19 @@ public class PersonalMessageController {
   @PostMapping("/register")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void register(@RequestParam("token") String token) {
+    logger.error("before token is: "+ token);
     System.out.println("register: " + token);
     this.pushSender.addToken(token);
+    logger.error("after token is: "+ token);
   }
 
   @PostMapping("/unregister")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void unregister(@RequestParam("token") String token) {
+    logger.error("before token is: "+ token);
     System.out.println("unregister: " + token);
     this.pushSender.removeToken(token);
+    logger.error("after token is: "+ token);
   }
 
 }
