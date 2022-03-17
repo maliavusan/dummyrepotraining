@@ -15,9 +15,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>push-notification</name>
 	<description>Sending push notification from Spring Boot to Ionic over FCM</description>
-	<properties>
+	<!-- <properties>
 		<java.version>11</java.version>
-	</properties>
+	</properties> -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
